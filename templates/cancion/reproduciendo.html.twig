@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="reproduciendo" class="alert alert-success text-center" role="alert">
+        <p>Reproduciendo la canción "{{ cancion.titulo }}", de {{cancion.cantante.nombre}}.</p>
+        <div class="datosCancion">
+            <h3>Datos de la canción: </h3>
+            <p>Titulo: {{ cancion.titulo }}</p>
+            <p>Artista: {{ cancion.cantante.nombre }}</p>
+            <p>Género: {{ cancion.genero }}</p>
+            <p>Duración: {{ cancion.duracion|date('H:m') }} minutos</p>
+            <p>Visitas: {{ cancion.reproducciones }} visitas</p>
+        </div>
+    </div>
+{% endblock %}

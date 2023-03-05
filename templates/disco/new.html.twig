@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Disco{% endblock %}
+
+{% block body %}
+    <h1>Create new Disco</h1>
+
+    {{ include('disco/_form.html.twig') }}
+
+    <a href="{{ path('app_disco_index') }}">back to list</a>
+{% endblock %}

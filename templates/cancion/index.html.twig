@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %} {% endblock %}
+
+{% block title %}Cancion index{% endblock %}
+
+{% block body %}
+    <h1>Cancion index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Genero</th>
+                <th>Duracion</th>
+                <th>Disco</th>
+                <th>Cantante</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cancion in cancions %}
+            <tr>
+                <td>{{ cancion.titulo }}</td>
+                <td>{{ cancion.genero }}</td>
+                <td>{{ cancion.duracion ? cancion.duracion|date('H:i:s') : '' }}</td>
+                <td><a href="{{ path('app_disco_show', {'id': cancion.disco.id}) }}">{{ cancion.disco.titulo }}</td>
+                <td><a href="{{ path('app_cantante_show', {'id': cancion.cantante.id}) }}">{{ cancion.cantante.nombre }}</td>
+                <td>
+                    <a href="{{ path('app_cancion_show', {'id': cancion.id}) }}">show</a>
+                    <a href="{{ path('app_cancion_edit', {'id': cancion.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cancion_new') }}">Create new</a>
+{% endblock %}

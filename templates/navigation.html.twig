@@ -1,0 +1,18 @@
+{% block stylesheets %}{% endblock %}
+
+<div id="navBar">
+    <img src="{{ asset('logo.png') }}" alt="logo" id="logo">
+    <a href="{{ path('app_home')}}">Home</a>
+    {% if app.user %}
+        <a href="{{ path('app_cancion_index')}}">Canciones</a>
+        <a href="{{ path('app_disco_index')}}">Albums</a>
+        <a href="{{ path('app_cantante_index')}}">Cantantes</a>
+        <div id="logedAs" class="mb-3">
+            You are logged in as {{ app.user.userIdentifier }} <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+        {% else %}
+        <a href="{{ path('app_login')}}">Login</a>
+        <a href="{{ path('app_register')}}">Register</a>
+    {% endif %}
+</div>
+

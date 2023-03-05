@@ -1,0 +1,108 @@
+body{
+    background-color: darkslategrey;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a, a:visited{
+    color: lightgreen;
+}
+ 
+table a, table a:visited{
+    background-color: lightgoldenrodyellow;
+    color: black;
+}
+#homePage{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#novedades, #tendencias{
+    padding: 10px;
+    text-align: center;
+}
+
+#novedades ul, #tendencias ul, #resultados_busqueda ul{
+    list-style: none;
+}
+
+#novedades li, #tendencias li, #resultados_busqueda li{
+    padding: 10px;
+}
+
+#navBar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+#logo{
+    float: left;
+    width: 50px;
+    height: 50px;
+}
+
+#navBar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+#logedAs{
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table{
+    width: 100vw;
+    text-align: center;
+}
+
+#reproduciendo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.datosCancion{
+    margin-top: 20px;
+    background-color: darkgreen;
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+#buscador, #resultados_busqueda{
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+#content-wrap {
+    padding-bottom: 2.5rem;   
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    background-color: darkgreen;
+    color: white;
+    text-align: center;
+    padding: 10px;   
+}

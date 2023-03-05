@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cantante index{% endblock %}
+
+{% block body %}
+    <h1>Cantante index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Fecha_nacimiento</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cantante in cantantes %}
+            <tr>
+                <td>{{ cantante.nombre }}</td>
+                <td>{{ cantante.fechaNacimiento ? cantante.fechaNacimiento|date('d-m-Y') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_cantante_show', {'id': cantante.id}) }}">show</a>
+                    <a href="{{ path('app_cantante_edit', {'id': cantante.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cantante_new') }}">Create new</a>
+{% endblock %}

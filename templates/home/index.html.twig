@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+<div class="spotyFake">
+    <div id="buscador">
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+    </div>
+    <div id="resultados_busqueda">
+        <ul>
+            {% for cancion in canciones %}
+                <li>Cancion: {{ cancion.titulo }} - {{ cancion.cantante.nombre }}<a href="{{ path('app_reproducir_cancion', {'id': cancion.id}) }}">
+                        <i class="fa-solid fa-play"></i>
+                    </a></li>
+            {% endfor %}
+        </ul>
+        <ul>
+            {% for cantante in cantantes %}
+                <li>Cantante: {{ cantante.nombre }}</li>
+            {% endfor %}
+        </ul>
+        <ul>
+            {% for disco in discos %}
+                <li>Disco: {{ disco.titulo }} - {{ disco.cantante.nombre }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div id="homePage">
+    <div id="novedades">
+    <h1>Novedades</h1>
+    <ul>
+        {% for cancion in cancionesNuevas %}
+            <li>{{ cancion.titulo }} - {{ cancion.cantante.nombre }}<a href="{{ path('app_reproducir_cancion', {'id': cancion.id}) }}">
+                    <i class="fa-solid fa-play"></i>
+                </a></li>
+        {% endfor %}
+    </ul>
+    </div>
+    <div id="tendencias">
+    <h1>Lo + escuchado</h1>
+    <ul>
+        {% for cancion in cancionesTendencia %}
+            <li>
+                <a href="{{ path('app_reproducir_cancion', {'id': cancion.id}) }}">
+                    {{ cancion.titulo }} - {{ cancion.cantante.nombre }}
+                    <i class="fa-solid fa-play"></i>
+                </a>
+            <p>{{ cancion.reproducciones }} reproducciones</p>    
+            </li>
+        {% endfor %}
+        <h3>Los + escuchados</h3>
+        {% for cantante in cantantesTendencia %}
+            <li>
+                <a style="cursor:pointer" href="{{ path('app_cantante_show', {'id': cantante.id}) }}">
+                    {{ cantante.nombre }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    </div>
+</div>
+{% endblock %}

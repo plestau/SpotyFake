@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Buscar canciones{% endblock %}
+
+{% block body %}
+    <h1>Buscar canciones</h1>
+    {{ form_start(form) }}
+    {{ form_row(form.q) }}
+    {{ form_row(form._token) }}
+    {{ form_row(form.Buscar) }}
+    {{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Disco index{% endblock %}
+
+{% block body %}
+    <h1>Disco index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Fecha_lanzamiento</th>
+                <th>Cantante</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for disco in discos %}
+            <tr>
+                <td>{{ disco.titulo }}</td>
+                <td>{{ disco.fechaLanzamiento ? disco.fechaLanzamiento|date('Y-m-d') : '' }}</td>
+                <td><a href="{{ path('app_cantante_show', {'id': disco.cantante.id}) }}">{{ disco.cantante.nombre }}</td>
+                <td>
+                    <a href="{{ path('app_disco_show', {'id': disco.id}) }}">show</a>
+                    <a href="{{ path('app_disco_edit', {'id': disco.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_disco_new') }}">Create new</a>
+{% endblock %}

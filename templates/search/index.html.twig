@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+    <h1>Resultados de búsqueda:</h1>
+
+    {% if resultadosBusqueda is not empty %}
+        <ul>
+            {% for cancion in resultadosBusqueda %}
+                <li>{{ cancion.titulo }} - {{ cancion.artista }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se han encontrado resultados</p>
+        <script>
+        </script>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Cancion{% endblock %}
+
+{% block body %}
+    <h1>Edit Cancion</h1>
+
+    {{ include('cancion/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href=\"{{ path('app_cancion_index') }}\">back to list</a>
+
+    {{ include('cancion/_delete_form.html.twig') }}
+{% endblock %}

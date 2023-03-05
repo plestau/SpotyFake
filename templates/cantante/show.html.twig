@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cantante{% endblock %}
+
+{% block body %}
+    <h1>Cantante</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ cantante.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Fecha_nacimiento</th>
+                <td>{{ cantante.fechaNacimiento ? cantante.fechaNacimiento|date('d-m-Y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Reproducciones</th>
+                <td>{{ cantante.reproduccionesTotales }}</td>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cantante_index') }}">back to list</a>
+
+    <a href="{{ path('app_cantante_edit', {'id': cantante.id}) }}">edit</a>
+
+    {{ include('cantante/_delete_form.html.twig') }}
+{% endblock %}
