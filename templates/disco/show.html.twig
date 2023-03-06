@@ -3,6 +3,7 @@
 {% block title %}Disco{% endblock %}
 
 {% block body %}
+{% if app.user %}
     <h1>Disco</h1>
 
     <table class="tableDisco">
@@ -29,4 +30,8 @@
     <a href="{{ path('app_disco_edit', {'id': disco.id}) }}">edit</a>
 
     {{ include('disco/_delete_form.html.twig') }}
+{% else %}
+    <h1>Debes estar logueado para ver esta página</h1>
+    <a href="{{ path('app_login') }}">Login</a>
+{% endif %}
 {% endblock %}

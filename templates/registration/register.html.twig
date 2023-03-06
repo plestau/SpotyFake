@@ -3,6 +3,15 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
+{% if app.user %}
+    <div class="mb-3">
+        You are logged in as {{ app.user.email }}, <a href="{{ path('app_logout') }}">Logout</a>
+    </div>
+{% else %}
+
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
@@ -18,4 +27,5 @@
 
         <button type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
+    {% endif %}
 {% endblock %}

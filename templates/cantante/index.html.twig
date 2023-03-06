@@ -3,6 +3,7 @@
 {% block title %}Cantante index{% endblock %}
 
 {% block body %}
+{% if app.user %}
     <h1>Cantante index</h1>
 
     <table class="table">
@@ -32,4 +33,8 @@
     </table>
 
     <a href="{{ path('app_cantante_new') }}">Create new</a>
+{% else %}
+    <h1>Debes estar logueado para ver esta pagina</h1>
+    <a href="{{ path('app_login') }}">Login</a>
+{% endif %}
 {% endblock %}

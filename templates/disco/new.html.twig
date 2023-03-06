@@ -3,9 +3,14 @@
 {% block title %}New Disco{% endblock %}
 
 {% block body %}
+{% if app.user %}
     <h1>Create new Disco</h1>
 
     {{ include('disco/_form.html.twig') }}
 
     <a href="{{ path('app_disco_index') }}">back to list</a>
+{% else %}
+    <p>Para acceder a esta página debes estar registrado</p>
+    <a href="{{ path('app_login') }}">Login</a>
+{% endif %}
 {% endblock %}

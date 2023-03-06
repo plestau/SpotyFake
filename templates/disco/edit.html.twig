@@ -3,6 +3,7 @@
 {% block title %}Edit Disco{% endblock %}
 
 {% block body %}
+{% if app.user %}
     <h1>Edit Disco</h1>
 
     {{ include('disco/_form.html.twig', {'button_label': 'Update'}) }}
@@ -10,4 +11,8 @@
     <a href="{{ path('app_disco_index') }}">back to list</a>
 
     {{ include('disco/_delete_form.html.twig') }}
+{% else %}
+    <h1>Debes estar logueado para poder editar un disco</h1>
+    <a href="{{ path('app_login') }}">Login</a>
+{% endif %}
 {% endblock %}

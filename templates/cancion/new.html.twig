@@ -3,9 +3,14 @@
 {% block title %}New Cancion{% endblock %}
 
 {% block body %}
+{% if app.user %}
     <h1>Create new Cancion</h1>
 
     {{ include('cancion/_form.html.twig') }}
 
     <a href="{{ path('app_cancion_index') }}">back to list</a>
+{% else %}
+    <h1>Debes estar logueado para poder crear una canción</h1>
+    <a href="{{ path('app_login') }}">Login</a>
+{% endif %}
 {% endblock %}
